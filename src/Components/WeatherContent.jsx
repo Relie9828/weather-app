@@ -16,9 +16,9 @@ export default function WeatherContent ({ navigation, location, temperature }) {
             alignSelf: 'center',
             shadowColor: "#000",
             shadowOpacity: 0.08,
-            shadowRadius: 2,
             borderRadius: 10,
             marginBottom: 10, 
+            shadowRadius: 2,
             padding: 10,
             width: '90%',
 
