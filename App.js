@@ -9,7 +9,7 @@ import * as eva from '@eva-design/eva';
 export default function App ({ navigation }) {
 
   const TRANSITIONS = 'fade';
-  const STYLES = 'light-content';
+  const STYLES = 'dark-content';
 
   return (
     <ApplicationProvider {...eva} theme={eva.dark}>

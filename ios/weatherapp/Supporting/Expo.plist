@@ -10,6 +10,8 @@
     <string>ALWAYS</string>
     <key>EXUpdatesLaunchWaitMs</key>
     <integer>0</integer>
+    <key>EXUpdatesReleaseChannel</key>
+    <string>preview</string>
     <key>EXUpdatesRuntimeVersion</key>
     <string>2.718</string>
   </dict>
