@@ -18,8 +18,7 @@ export default function WeatherContent ({ navigation, location, temperature, wea
     const icons = [ faCloud, faSun, faCloudBolt, faCloudSun, faCloudShowersHeavy]
     const [icon , setIcon] = useState(icons[0])
 
-    var check;
-    useEffect(() => {
+    const checkIcons = () => {
         if( weather === 'Sunny' ) {
             setIcon(icons[1])
         }
@@ -35,6 +34,9 @@ export default function WeatherContent ({ navigation, location, temperature, wea
         if( weather === 'Storm' ) {
             setIcon(icons[2])
         }
+    }
+    useEffect(() => {
+        checkIcons()
     }, [icon]);
 
     return (
