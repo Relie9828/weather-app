@@ -1,11 +1,45 @@
 import { View, Text, Image, FlatList, TouchableOpacity, Vibration, Pressable, Dimensions, Alert } from 'react-native';
 import React, { useState, useEffect, useCallback, useRef, useContext } from 'react';
 import { Icon } from '@ui-kitten/components';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { 
+    faSun,
+    faCloud,
+    faCloudSun,
+    faCloudBolt,
+    faCloudShowersHeavy,
+} from '@fortawesome/free-solid-svg-icons';
 
-export default function WeatherContent ({ navigation, location, temperature }) {
+export default function WeatherContent ({ navigation, location, temperature, weather }) {
 
     let deviceHeight = Dimensions.get('window').height;
     let deviceWidth = Dimensions.get('window').width;
+
+    const icons = [ faCloud, faSun, faCloudBolt, faCloudSun, faCloudShowersHeavy]
+    const [icon , setIcon] = useState(icons[0])
+
+    var check;
+    useEffect(() => {
+        check = setInterval(() => {
+            setIcon(icons[2])
+        }, 1000)
+        if( weather === 'Sunny' ) {
+            setIcon(icons[1])
+        }
+        if( weather === 'Rainy' ) {
+            setIcon(icons[4])
+        }
+        if( weather === 'Cloudy' ) {
+            setIcon(icons[3])
+        }
+        if( weather === 'Heavy rain' ) {
+            setIcon(icons[2])
+        }
+        if( weather === 'Storm' ) {
+            setIcon(icons[2])
+        } 
+        return () => clearInterval(check)
+    });
 
     return (
         <View style={{ 
@@ -28,13 +62,17 @@ export default function WeatherContent ({ navigation, location, temperature }) {
                 {location}
             </Text>
             <View style={{ width: '100%', padding: 10, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
-                <Icon name='activity' fill='black' width={20} height={20} />
+                <View style={{ alignItems: 'center', marginLeft: -5, width: 60, }}>
+                    <FontAwesomeIcon size={28} icon={icon} color='black' />
+                    <Text style={{ fontSize: 10, }}>
+                        {weather}
+                    </Text>
+                </View>
 
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', }}>
                     <Text style={{ fontSize: 20, }}>
-                        {temperature}
+                        {temperature} ºF
                     </Text>
-                    <Icon name='activity' fill='black' width={20} height={20} />
                 </View>
             </View>
         </View>

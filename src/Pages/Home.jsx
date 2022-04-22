@@ -10,11 +10,11 @@ export default function Home ({ navigation }) {
     let deviceWidth = Dimensions.get('window').width;
 
     const data = [
-        {id: '1', location: 'Gaithersburg', temperature: 70, },
-        {id: '2', location: 'Germantown', temperature: 70, },
-        {id: '3', location: 'Rockville', temperature: 72, },
-        {id: '4', location: 'Bethesda', temperature: 68, },
-        {id: '5', location: 'Frederick', temperature: 65, },
+        {id: '1', location: 'Gaithersburg', temperature: 67, weather: 'Sunny' },
+        {id: '2', location: 'Germantown', temperature: 69, weather: 'Rainy' },
+        {id: '3', location: 'Rockville', temperature: 72, weather: 'Cloudy' },
+        {id: '4', location: 'Bethesda', temperature: 70, weather: 'Heavy rain' },
+        {id: '5', location: 'Frederick', temperature: 67, weather: 'Storm' },
     ]
 
     const Header = ({item}) => {
@@ -25,18 +25,21 @@ export default function Home ({ navigation }) {
 
     const Items = ({item}) => {
         return (
-            <WeatherContent location={item.location} temperature={item.temperature} />
+            <View>
+                <WeatherContent location={item.location} temperature={item.temperature} weather={item.weather} />
+            </View>
         )
     }
 
     return (
         <View style={{ height: deviceHeight, width: deviceWidth, alignItems: 'center', justifyContent: 'flex-start', }}>
             <SearchHeader />
-            <FlatList contentContainerStyle={{ marginTop: 25, width: deviceWidth }} 
-            data={data}
-            ListHeaderComponent={Header}
-            renderItem={Items}
-             />
+            <View style={{ flex: 1, }}>
+                <FlatList contentContainerStyle={{ marginTop: 25, paddingBottom: 60, }} 
+                data={data} showsVerticalScrollIndicator={false}
+                ListHeaderComponent={Header}
+                renderItem={Items} />
+             </View>
         </View>
     )
 }
