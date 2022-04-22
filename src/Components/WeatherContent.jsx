@@ -39,7 +39,7 @@ export default function WeatherContent ({ navigation, location, temperature, wea
             setIcon(icons[2])
         } 
         return () => clearInterval(check)
-    });
+    }, []);
 
     return (
         <View style={{ 
