@@ -20,9 +20,6 @@ export default function WeatherContent ({ navigation, location, temperature, wea
 
     var check;
     useEffect(() => {
-        check = setInterval(() => {
-            setIcon(icons[2])
-        }, 1000)
         if( weather === 'Sunny' ) {
             setIcon(icons[1])
         }
@@ -37,9 +34,8 @@ export default function WeatherContent ({ navigation, location, temperature, wea
         }
         if( weather === 'Storm' ) {
             setIcon(icons[2])
-        } 
-        return () => clearInterval(check)
-    }, []);
+        }
+    }, [icon]);
 
     return (
         <View style={{ 

@@ -22,7 +22,7 @@ export default function SearchHeader ({ navigation }) {
             padding: 10,
         }}>
             <View style={{ 
-                borderRadius: 10,
+                borderRadius: 13,
                 overflow: 'hidden',
                 alignItems: 'center',
                 flexDirection: 'row',
@@ -30,8 +30,8 @@ export default function SearchHeader ({ navigation }) {
                 backgroundColor:'rgba(4, 4, 4, 0.03)',
             }}>
                 <Icon name='search' fill='lightgray' height={25} width={35} />
-                <TextInput placeholder='search' 
-                style={{  fontSize: 18, width: '85%', padding: 5, height: 45 }} />
+                <TextInput placeholder='Search' placeholderTextColor={'lightgray'}
+                style={{ fontSize: 18, width: '85%', padding: 5, height: 45 }} />
             </View>
         </View>
     )

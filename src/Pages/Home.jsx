@@ -15,6 +15,7 @@ export default function Home ({ navigation }) {
         {id: '3', location: 'Rockville', temperature: 72, weather: 'Cloudy' },
         {id: '4', location: 'Bethesda', temperature: 70, weather: 'Heavy rain' },
         {id: '5', location: 'Frederick', temperature: 67, weather: 'Storm' },
+        {id: '6', location: 'Clarksburg', temperature: 68, weather: 'Sunny' },
     ]
 
     const Header = ({item}) => {
@@ -35,7 +36,7 @@ export default function Home ({ navigation }) {
         <View style={{ height: deviceHeight, width: deviceWidth, alignItems: 'center', justifyContent: 'flex-start', }}>
             <SearchHeader />
             <View style={{ flex: 1, }}>
-                <FlatList contentContainerStyle={{ marginTop: 25, paddingBottom: 60, }} 
+                <FlatList contentContainerStyle={{ marginTop: 20, paddingBottom: 40, }} 
                 data={data} showsVerticalScrollIndicator={false}
                 ListHeaderComponent={Header}
                 renderItem={Items} />
